@@ -1,16 +1,17 @@
 import random
 
-seq = list(range (1, 17))
+seq = list(range (1, 7))
 print(seq)
 
-is_sol = 1
-
+count = 0
+y = 0
 random.shuffle(seq)
 print(seq)
 
-for index in range(len(seq)):
-    if seq[index] > seq[index+1]:
-        is_sol += 1
+for element in seq:
+        for i in seq[seq.index(element): len(seq)]:
+                if element > i:
+                	count += 1
 
-print (is_sol)
-        
+print (count)
+
