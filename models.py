@@ -14,19 +14,16 @@ class Storage(object):
         return cls.__obj
 
 class Field(object):
-    def __init__(self, x):
-        self.x = x
-    def print_field(self):
-        self.z = '-' * self.x
-        for item in range(0, len(self.z), 10):
-            print(self.z[item:item + 10])
+    def __init__(self, x, y):
+    	pass
 
-f1 = Field(100)
-f1.print_field()
+x = ['-'] * 100
+for item in range(0, len(x), 10):
+	print (x[item:item+10])
 
 
 class Player(object):
-    def __init__(self, name, ):
+    def __init__(self, name):
         self.name = name
 
     def __str__(self):
