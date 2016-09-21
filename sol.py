@@ -1,10 +1,4 @@
-import random
 
-seq = list(range (1, 7))
-print(seq)
-
-count = 0
-y = 0
 random.shuffle(seq)
 print(seq)
 
