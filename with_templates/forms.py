@@ -16,5 +16,5 @@ class BlogPostForm(FlaskForm):
     ])
     author = StringField(label='Author', validators=[
         validators.Regexp(r'\w+\s\w+', flags=re.IGNORECASE,
-                          message='There must be space beetween name and surname'),
+                          message='There must be a space between name and surname'),
     ])

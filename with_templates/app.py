@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, json
 
 import config
 from forms import BlogPostForm
@@ -36,6 +36,7 @@ def home():
         form=form,
         items=all_items,
     )
+
 
 if __name__ == '__main__':
     app.run()
