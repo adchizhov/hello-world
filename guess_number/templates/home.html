@@ -24,20 +24,27 @@
             {% endfor %}
         </dl>
 
-        <input type="submit" value="{{ 'Submit' }}" class="btn">
+        <input type="submit" value="{{ 'Submit you number' }}" class="btn">
     </form>
 
     <div class="posts">
-        {% for item in items %}
+        {% for item in items[::-1] %}
             <div class="post">
-                <h4>{{ item.number }}</h4>
+                <h5>{{ 'your last number is ' + item.number}}</h5>
             </div>
 
         {% endfor %}
 
     </div>
+        <div class="results">
+        {% for result in results[::-1] %}
+            <div class="result">
+                <h5>{{ result }}</h5>
+            </div>
 
+        {% endfor %}
 
+    </div>
 </div>
 
 {% endblock %}

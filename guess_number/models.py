@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
+from random import randint
 
 __author__ = 'sobolevn'
 
 
 class Storage(object):
     items = None
-    secret_number = None
     _obj = None
 
     @classmethod
@@ -13,10 +13,13 @@ class Storage(object):
         if cls._obj is None:
             cls._obj = object.__new__(cls)
             cls.items = []
-            cls.secret_number = []
+            cls.results = []
         return cls._obj
 
 
 class NumberModel(object):
-    def __init__(self, form_data):
-        self.number = form_data['number']
+    def __init__(self, number):
+        self.number = number['number']
+
+class TextModel(object):
+    pass

@@ -20,20 +20,23 @@ app.config.from_object(config)
 @app.route('/', methods=['GET', 'POST'])
 def home():
     storage = Storage()
-    all_items, sec_number = storage.items, storage.secret_number
-    sec_number.append(randint(1, 101))
-
+    all_items, all_results = storage.items, storage.results
+    sec_number = 80
     if request.method == 'POST':
         form = NumberModelForm(request.form)
+        print(sec_number)
+        print(all_items)
+        print(all_results)
         if form.validate():
             model = NumberModel(form.data)
+            print(model.number)
             all_items.append(model)
-            # if all_items[-1] == sec_number[0]:
-            #     message = 'You win!'
-            # elif all_items[-1] > sec_number[0]:
-            #     message = 'Less'
-            # elif all_items[-1] < sec_number[0]:
-            #     message = 'Greater'
+            if model.number == sec_number:
+                all_results.append('You win!')
+            elif model.number > sec_number:
+                all_results.append('Greater')
+            elif model.number < sec_number:
+                all_results.append('Less')
         else:
             logger.error('Someone have submitted an incorrect form!')
     else:
@@ -43,6 +46,7 @@ def home():
         'home.html',
         form=form,
         items=all_items,
+        results=all_results
     )
 
 if __name__ == '__main__':
