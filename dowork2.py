@@ -1,14 +1,9 @@
 # -*- coding: utf-8 -*-
 __author__ = 'adchizhov'
-
-
-
-
-
 import csv
 import json
 
-old = ['http://360tv.ru/news/den-v-istorii-11-nojabrja/', 'http://360tv.ru/vlast/news/den-v-istorii-11-nojabrja-200456/']
+old_fucked_up = ['http://360tv.ru/news/den-v-istorii-11-nojabrja/', 'http://360tv.ru/vlast/news/den-v-istorii-11-nojabrja-200456/']
 
 
 def olde(stro):
@@ -21,7 +16,7 @@ def olde(stro):
     return {"site": 1,'old_path': old_with, 'new_path': new_link}
 
 
-dict = {
+what_i_need = {
     "model": "redirects.redirect",
     "fields": {
         "site": 1,
@@ -29,7 +24,7 @@ dict = {
         "new_path": "/tips/redirects-app/"
     }
 },
-# reading csv file
+
 lst = list()
 with open('output22.csv', 'r') as csvfile:
     csvreader = csv.reader(csvfile)
@@ -39,7 +34,6 @@ with open('output22.csv', 'r') as csvfile:
         again["model"] = "redirects.redirect"
         again['fields'] = olde(row)
         lst.append(again)
-    # get total number of rows
     print("Total no. of rows: %d" % (csvreader.line_num))
 
 wr = json.dumps(lst, indent=4, sort_keys=True)
