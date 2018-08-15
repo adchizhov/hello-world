@@ -3,7 +3,7 @@ __author__ = 'adchizhov'
 import csv
 import json
 
-old_fucked_up = ['http://360tv.ru/news/den-v-istorii-11-nojabrja/', 'http://360tv.ru/vlast/news/den-v-istorii-11-nojabrja-200456/']
+# old_fucked_up = ['http://.ru/news/abrja/', 'http://.ru/56/']
 
 
 def olde(stro):
